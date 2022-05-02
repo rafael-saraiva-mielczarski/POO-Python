@@ -1,0 +1,45 @@
+@startuml cinema
+
+title Diagrama do Cinema
+
+class Cinema{
+    - franquia:String 
+    - endereco:String
+    - cliente:Cliente
+    + construtor(franquia, endereco, cliente)
+    + registrar_cliente(cliente)
+    + comprar_ingresso(cliente.saldo)
+}
+
+class Cliente{
+    - cpf:String
+    - nome:String 
+    - telefone:Telefone
+    - saldo:Saldo
+    + construtor(cpf, nome, telefone, saldo)
+    + comprar_ingresso(cliente.saldo)
+}
+
+class Sessao{
+    - numero_sala:Integer
+    - poltronas:Integer
+    - filme:String
+    + construtor(numero_sala, poltronas)
+}
+
+class Ingresso{
+    - preço:Integer
+    - numero_poltrona:Integer
+    - numero_ingresso:Integer
+    - cinema:Cinema
+    - cliente:Cliente
+    - sessao: Sessao
+    + construtor(preço, numero_poltrona, numero_ingresso, cinema, cliente, sessao)
+}
+
+Cinema *-- Cliente
+Cliente *-- Ingresso
+Sessao *-- Ingresso
+Cinema *-- Ingresso
+
+@enduml

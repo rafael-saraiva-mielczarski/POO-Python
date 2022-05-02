@@ -1,0 +1,49 @@
+@startuml carros
+
+title Diagrama de Classes
+
+class Veiculo{
+    - proprietario:String 
+    - registro:Integer
+    - marca:String
+    - modelo:String
+    - ano:Integer
+    
+    + construtor(proprietario, registro, marca, modelo, ano)
+}
+
+class Carro{
+    - cor:String
+    - cavalos:Integer
+    - veiculo:veiculo
+    
+    + construtor(veiculo, cor, cavalos)
+}
+
+class Moto{
+    - cor:String
+    - cc:Integer
+    - veiculo:Veiculo
+    
+    + construtor(veiculo, cor, cc)
+}
+
+class Aviao{
+    - companhia_aerea:String
+    - motor:Integer
+    - veiculo:Veiculo
+
+    + construtor(veiculo, companhia_aerea, motor)
+}
+
+class Pessoa{
+    - nome:String 
+    - endereco: String
+    + construtor(nome, endereco)
+}
+
+Veiculo <|-- Carro
+Veiculo <|-- Moto
+Veiculo <|-- Aviao
+Pessoa *-- Veiculo
+@enduml
