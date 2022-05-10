@@ -6,8 +6,12 @@ class Cliente():
         self._telefone = telefone
         self._saldo = saldo
 
-    def comprar_ingresso(ingresso):
-        if Cliente.saldo >= ingresso: 
-            return print ("Ingresso comprado!")
+    def comprar_ingresso(self):
+        if self._saldo >= 16:
+            self._saldo -= 16 
+            print ("Ingresso comprado!")
         else:
-            return print("Não foi possivel comprar o ingresso, saldo insuficiente")
+            print("Não foi possivel comprar o ingresso, saldo insuficiente")
+
+    def mostrar_saldo(self):
+        print(self._saldo,"R$")

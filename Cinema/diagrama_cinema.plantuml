@@ -2,13 +2,22 @@
 
 title Diagrama do Cinema
 
+
+class Sessao{
+    - tipo:String
+    - numero_sala:Integer
+    - poltronas:Integer
+    - filme:String
+    + construtor(numero_sala, poltronas)
+    + mostrar_numero_de_poltronas(self)
+}
+
 class Cinema{
     - franquia:String 
     - endereco:String
     - cliente:Cliente
     + construtor(franquia, endereco, cliente)
-    + registrar_cliente(cliente)
-    + comprar_ingresso(cliente.saldo)
+    + registrar_cliente(self)
 }
 
 class Cliente{
@@ -17,29 +26,25 @@ class Cliente{
     - telefone:Telefone
     - saldo:Saldo
     + construtor(cpf, nome, telefone, saldo)
-    + comprar_ingresso(cliente.saldo)
+    + comprar_ingresso(self)
 }
 
-class Sessao{
-    - numero_sala:Integer
-    - poltronas:Integer
-    - filme:String
-    + construtor(numero_sala, poltronas)
-}
 
 class Ingresso{
+    - filme:String
     - preço:Integer
     - numero_poltrona:Integer
     - numero_ingresso:Integer
     - cinema:Cinema
     - cliente:Cliente
-    - sessao: Sessao
+    - sessao:Sessao
     + construtor(preço, numero_poltrona, numero_ingresso, cinema, cliente, sessao)
+    + mostrar_ingresso_completo(self)
 }
 
-Cinema *-- Cliente
-Cliente *-- Ingresso
-Sessao *-- Ingresso
-Cinema *-- Ingresso
+Cliente *-- Cinema
+Ingresso *-- Cliente
+Ingresso *-- Sessao
+Ingresso *-- Cinema
 
 @enduml
