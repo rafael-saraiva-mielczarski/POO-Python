@@ -1,0 +1,39 @@
+@startuml heranca_associacao
+
+title Diagrama de Classes - dependica
+
+class Eletronico{
+    - nome: String 
+    - marca: String
+    - memoria: String
+    - processador: String
+    + construtor(nome, marca, memoria, processador, Controle)
+}
+
+class Televisao{
+    - resulucao: String
+    - polegadas: Int
+    - eletronico: Eletronico
+    + construtor(resulucao, polegadas,  eletronico)
+}
+
+class televisaoBox{
+    - sistema_operacional: String
+    - tipo: String
+    - eletronico: Eletronico
+    + construtor(sistema_operacional, tipo,  eletronico)
+}
+
+class Controle{
+    - nome: String 
+    - marca: String
+    - tipo: String
+    + construtor(nome, marca, tipo)
+}
+
+Eletronico <|.. Controle 
+Eletronico <|-- Televisao
+Eletronico <|-- televisaoBox
+
+
+@enduml

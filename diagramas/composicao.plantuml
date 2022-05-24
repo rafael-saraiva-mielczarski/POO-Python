@@ -1,0 +1,33 @@
+@startuml Heranca
+
+title Diagrama de Classes - Composicao
+
+class Banco{
+    - tipo: String
+    - telefone: String
+    - endereco: String
+    - contaCorrente: ContaCorrente
+    - poupanca: Poupanca
+    + construtor(tipo, telefone, endereco, contaCorrente, poupanca)
+}
+
+class ContaCorrente{
+    - numero_cc: Int
+    - saldo: Float
+    - categoria: Categoria
+    - cheque_especial: Float
+    + construtor(numero_cc, saldo, pessoa, agencia, categoria, cheque_especial)
+}
+
+class Poupanca{
+    - numero_cc: Int
+    - saldo: Float
+    - categoria: Categoria
+    - rendimento: Float
+    + construtor(numero_cc, saldo, pessoa, agencia, categoria, rendimento)
+}
+
+Banco *-- ContaCorrente
+Banco *-- Poupanca
+
+@enduml

@@ -1,0 +1,29 @@
+@startuml losango
+
+title Problema do Diamante
+
+class Objeto{
+	+m1(self)
+}
+
+class Retangulo{
+	+m2(self)
+}
+
+class Clicavel{
+	+m2(self)
+}
+
+class Botão{
+	+m1(self)
+	+m2(self)
+}
+
+Objeto <|-- Retangulo
+Objeto <|-- Clicavel
+Retangulo <|-- Botão
+Clicavel <|-- Botão
+
+@enduml
+
+' #  A ordem de herança afeta a semântica da classe. Python teve que lidar com isso após a introdução de classes de novo estilo, todas com um ancestral comum object,. Python cria uma lista de classes usando o algoritmo de linearização C3 (ou Method Resolution Order (MRO)). Esse algoritmo impõe duas restrições: os filhos precedem seus pais e se uma classe herda de várias classes, eles são mantidos na ordem especificada na tupla das classes base (no entanto, neste caso, algumas classes altas no gráfico de herança podem preceder as classes inferiores em o gráfico [10] ). Assim, a ordem de resolução método é: D, B, C, A. [11]

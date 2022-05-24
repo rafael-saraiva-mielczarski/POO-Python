@@ -1,0 +1,29 @@
+@startuml heranca_associacao
+
+title Diagrama de Classes - Associacao
+
+class PessoaFisica{
+    - cpf: String
+    - data_nascimento: Date 
+    - pessoa: Pessoa
+    + construtor(cpf, data_nascimento, pessoa)
+}
+
+class PessoaJuridica{
+    - cnpf: String
+    - ano_fundacao: Int
+    - pessoa: Pessoa
+    + construtor(cnpj, ano_fundacao, pessoa)
+}
+
+class Pessoa{
+    - nome: String 
+    - endereco: String
+    + construtor(nome, endereco)
+}
+
+Pessoa <|-- PessoaFisica
+Pessoa <|-- PessoaJuridica
+
+
+@enduml
